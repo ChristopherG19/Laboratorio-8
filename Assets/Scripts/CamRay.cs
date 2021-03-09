@@ -19,5 +19,7 @@ public class CamRay : MonoBehaviour
 
         Debug.DrawRay(myRay.origin, myRay.direction * 100, Color.red);
 
+        Physics.Raycast(myRay.origin, myRay.direction, out RaycastHit hitInfo, 10f);
+
     }
 }

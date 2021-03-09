@@ -8,22 +8,28 @@ public class ObjectID : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnMouseEnter()
     {
-        Image Boton = GameObject.FindObjectOfType<LevelManager>().BotonF;
-        Text objectTag = GameObject.FindObjectOfType<LevelManager>().objectTag;
-        Boton.enabled = true;
-        objectTag.enabled = true;
-        objectTag.text = gameObject.name;
+        Ray myRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        bool Choque = Physics.Raycast(myRay.origin, myRay.direction, 5f);
+
+        if (!Choque)
+        {
+            Image Boton = GameObject.FindObjectOfType<LevelManager>().BotonF;
+            Text objectTag = GameObject.FindObjectOfType<LevelManager>().objectTag;
+            Boton.enabled = true;
+            objectTag.enabled = true;
+            objectTag.text = gameObject.name;
+        }
     }
     private void OnMouseExit()
     {
