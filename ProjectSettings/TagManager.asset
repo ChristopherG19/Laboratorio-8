@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Battery
+  - Chair
+  - WorldGlobe
+  - Paper
+  - LunchBox
+  - Desk
+  - First Aid
+  - Board
+  - Shelf
   layers:
   - Default
   - TransparentFX
