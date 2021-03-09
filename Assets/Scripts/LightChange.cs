@@ -36,7 +36,7 @@ public class LightChange : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        AudioSource Alarm = Alarms.GetComponent<AudioSource>();
+        AudioSource Alarm = Alarms.GetComponent<AudioSource>(); 
         Alarm.Stop();
 
         AudioSource Music = MusicaF.GetComponent<AudioSource>();
