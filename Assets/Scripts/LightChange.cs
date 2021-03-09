@@ -5,6 +5,10 @@ using UnityEngine;
 public class LightChange : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    public GameObject MusicaF;
+    public GameObject Alarms;
+
     void Start()
     {
         GetComponent<Light>().enabled = false;
@@ -18,6 +22,12 @@ public class LightChange : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        AudioSource Music = MusicaF.GetComponent<AudioSource>();
+        Music.Stop();
+
+        AudioSource Alarm = Alarms.GetComponent<AudioSource>();
+        Alarm.Play();
+
         if (other.CompareTag("Player"))
         {
             GetComponent<Light>().enabled = true;
@@ -26,6 +36,12 @@ public class LightChange : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        AudioSource Alarm = Alarms.GetComponent<AudioSource>();
+        Alarm.Stop();
+
+        AudioSource Music = MusicaF.GetComponent<AudioSource>();
+        Music.Play();
+
         if (other.CompareTag("Player"))
         {
             GetComponent<Light>().enabled = false;
