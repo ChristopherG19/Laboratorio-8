@@ -2,20 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Oscilación : MonoBehaviour
+public class Oscilación1 : MonoBehaviour
 {
-
-    Vector3 origPos;
-
     // Start is called before the first frame update
     void Start()
     {
-        origPos = transform.position;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = origPos + new Vector3(Mathf.Sin(Time.time) * 6, 0, 0);
+        
     }
 }
