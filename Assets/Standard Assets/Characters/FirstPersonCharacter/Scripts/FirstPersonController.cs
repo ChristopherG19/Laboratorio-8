@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
@@ -42,8 +43,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
+        public float remainingDistance;
 
-        
 
         // Use this for initialization
         private void Start()
@@ -262,4 +263,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
     }
+
+
+
+
 }

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ObjectID : MonoBehaviour
 {
+    Ray myRay;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,29 +16,95 @@ public class ObjectID : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        DistanciaTags();
     }
 
-    private void OnMouseEnter()
+    private void DistanciaTags()
     {
-        Ray myRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        bool Choque = Physics.Raycast(myRay.origin, myRay.direction, 5f);
+        myRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        RaycastHit Choque;
 
-        if (!Choque)
+        if (Physics.Raycast(myRay.origin, myRay.direction, out Choque, 3.0f)) 
         {
-            Image Boton = GameObject.FindObjectOfType<LevelManager>().BotonF;
+            if (Choque.collider.CompareTag("Chair"))
+            {
+                Image Boton = GameObject.FindObjectOfType<LevelManager>().BotonF;
+                Text objectTag = GameObject.FindObjectOfType<LevelManager>().objectTag;
+                Boton.enabled = true;
+                objectTag.enabled = true;
+                objectTag.text = "Chair";
+            }
+            else if (Choque.collider.CompareTag("Desk"))
+            {
+                Image Boton = GameObject.FindObjectOfType<LevelManager>().BotonF;
+                Text objectTag = GameObject.FindObjectOfType<LevelManager>().objectTag;
+                Boton.enabled = true;
+                objectTag.enabled = true;
+                objectTag.text = "Desk";
+            }
+            else if (Choque.collider.CompareTag("Paper"))
+            {
+                Image Boton = GameObject.FindObjectOfType<LevelManager>().BotonF;
+                Text objectTag = GameObject.FindObjectOfType<LevelManager>().objectTag;
+                Boton.enabled = true;
+                objectTag.enabled = true;
+                objectTag.text = "Paper";
+            }
+            else if (Choque.collider.CompareTag("Board"))
+            {
+                Image Boton = GameObject.FindObjectOfType<LevelManager>().BotonF;
+                Text objectTag = GameObject.FindObjectOfType<LevelManager>().objectTag;
+                Boton.enabled = true;
+                objectTag.enabled = true;
+                objectTag.text = "Board";
+            }
+            else if (Choque.collider.CompareTag("LunchBox"))
+            {
+                Image Boton = GameObject.FindObjectOfType<LevelManager>().BotonF;
+                Text objectTag = GameObject.FindObjectOfType<LevelManager>().objectTag;
+                Boton.enabled = true;
+                objectTag.enabled = true;
+                objectTag.text = "LunchBox";
+            }
+            else if (Choque.collider.CompareTag("WorldGlobe"))
+            {
+                Image Boton = GameObject.FindObjectOfType<LevelManager>().BotonF;
+                Text objectTag = GameObject.FindObjectOfType<LevelManager>().objectTag;
+                Boton.enabled = true;
+                objectTag.enabled = true;
+                objectTag.text = "WorldGlobe";
+            }
+            else if (Choque.collider.CompareTag("Battery"))
+            {
+                Image Boton = GameObject.FindObjectOfType<LevelManager>().BotonF;
+                Text objectTag = GameObject.FindObjectOfType<LevelManager>().objectTag;
+                Boton.enabled = true;
+                objectTag.enabled = true;
+                objectTag.text = "Battery";
+            }
+            else if (Choque.collider.CompareTag("Shelf"))
+            {
+                Image Boton = GameObject.FindObjectOfType<LevelManager>().BotonF;
+                Text objectTag = GameObject.FindObjectOfType<LevelManager>().objectTag;
+                Boton.enabled = true;
+                objectTag.enabled = true;
+                objectTag.text = "Shelf";
+            }
+            else if (Choque.collider.CompareTag("First Aid"))
+            {
+                Image Boton = GameObject.FindObjectOfType<LevelManager>().BotonF;
+                Text objectTag = GameObject.FindObjectOfType<LevelManager>().objectTag;
+                Boton.enabled = true;
+                objectTag.enabled = true;
+                objectTag.text = "First Aid";
+            }
+        }
+        else
+        {
             Text objectTag = GameObject.FindObjectOfType<LevelManager>().objectTag;
-            Boton.enabled = true;
-            objectTag.enabled = true;
-            objectTag.text = gameObject.name;
+            Image Boton = GameObject.FindObjectOfType<LevelManager>().BotonF;
+            Boton.enabled = false;
+            objectTag.enabled = false;
         }
     }
-    private void OnMouseExit()
-    {
-        Text objectTag = GameObject.FindObjectOfType<LevelManager>().objectTag;
-        Image Boton = GameObject.FindObjectOfType<LevelManager>().BotonF;
-        Boton.enabled = false;
-        objectTag.enabled = false;
-    }
-
 }

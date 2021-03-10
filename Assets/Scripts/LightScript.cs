@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LightScript : MonoBehaviour
 {
+    public AudioSource Audio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +17,7 @@ public class LightScript : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            Audio.Play();
             GetComponent<Light>().enabled = !GetComponent<Light>().enabled;
         }
     }
